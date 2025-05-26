@@ -16,15 +16,6 @@ export const OrderInfo: FC = () => {
   if (!number) return <h1>No number</h1>;
   const isLoading = useSelector(selectIsNumberOrderLoading);
   const dispatch = useDispatch();
-  // const orderData = {
-  //   createdAt: '',
-  //   ingredients: [],
-  //   _id: '',
-  //   status: '',
-  //   name: '',
-  //   updatedAt: 'string',
-  //   number: 0
-  // };
 
   const orderData = useSelector(selectOrderModalData);
 
@@ -45,7 +36,7 @@ export const OrderInfo: FC = () => {
     };
 
     const ingredientsInfo = orderData.ingredients.reduce(
-      (acc: TIngredientsWithCount, item) => {
+      (acc: TIngredientsWithCount, item: string) => {
         if (!acc[item]) {
           const ingredient = ingredients.find((ing) => ing._id === item);
           if (ingredient) {
