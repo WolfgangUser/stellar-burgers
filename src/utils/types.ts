@@ -1,7 +1,7 @@
-export type TIngredient = {
-  _id: string;
+export type TMenuItem = {
+  itemId: string;
   name: string;
-  type: string;
+  category: string;
   proteins: number;
   fat: number;
   carbohydrates: number;
@@ -12,29 +12,29 @@ export type TIngredient = {
   image_mobile: string;
 };
 
-export type TConstructorIngredient = TIngredient & {
-  id: string;
+export type TBasketItem = TMenuItem & {
+  basketId: string;
 };
 
-export type TOrder = {
-  _id: string;
+export type TPurchase = {
+  purchaseId: string;
   status: string;
   name: string;
   createdAt: string;
   updatedAt: string;
-  number: number;
-  ingredients: string[];
+  orderNumber: number;
+  items: string[];
 };
 
-export type TOrdersData = {
-  orders: TOrder[];
+export type TPurchaseData = {
+  purchases: TPurchase[];
   total: number;
-  totalToday: number;
+  todayTotal: number;
 };
 
-export type TUser = {
+export type TAccount = {
   email: string;
   name: string;
 };
 
-export type TTabMode = 'bun' | 'sauce' | 'main';
+export type TMenuCategory = 'bread' | 'sauce' | 'dish';
